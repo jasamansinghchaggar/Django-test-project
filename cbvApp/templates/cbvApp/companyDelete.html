@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block body_block %}
+<div class="container">
+    <h1>Delete {{ company.name }}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete {{ company.name }}?</p>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'cbvApp:companylist' %}" class="btn">Cancel</a>
+    </form>
+</div>
+{% endblock %}

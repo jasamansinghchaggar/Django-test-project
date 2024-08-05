@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block body_block %}
+<div class="container">
+    <a href="{% url 'cbvApp:companylist' %}" class="btn btn-outline-info"><i class="bi bi-arrow-left"></i></a>
+    <h1>Company Details:</h1>
+    <h4>Name: {{ companydetail.name }}</h4>
+    <h4>Location: {{ companydetail.location }}</h4>
+    <h4>Address: {{ companydetail.address }}</h4>
+
+    <h2>Employees:</h2>
+    {% for employee in companydetail.employee.all %}
+    <ol>
+        <!-- <h4>Employee {{ employee.pk }}</h4> -->
+        <li>Name: {{ employee.name }}</li>
+        <li>Age: {{ employee.age }}</li>
+        <li>Company: {{ employee.company }}</li>
+    </ol>
+    {% endfor %}
+    <a href="{% url 'cbvApp:company_delete' pk=companydetail.pk %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'cbvApp:company_update' pk=companydetail.pk %}" class="btn btn-warning">Update</a>
+</div>
+{% endblock %}

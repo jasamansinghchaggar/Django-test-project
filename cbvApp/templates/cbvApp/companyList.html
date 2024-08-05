@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block body_block %}
+<div class="container">
+    <h1>List of Companies:</h1>
+    <ol>
+        {% for company in companylist %}
+            <li><a href="{{ company.id }}" class="btn btn-link">{{ company.name }}</a></li>
+        {% endfor %}
+    </ol>
+    <a href="{% url 'cbvApp:company_create' %}" class="btn btn-warning">Create</a>
+    <a href="{% url 'cbvApp:employee_create' %}" class="btn btn-info">Add Employee</a>
+</div>
+{% endblock %}
